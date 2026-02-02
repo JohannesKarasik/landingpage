@@ -57,12 +57,15 @@ export default function Navbar() {
         <div className="flex gap-2">
           {/* ✅ Get Started opens modal */}
           <button
-            onClick={() => setShowModal(true)}
-            style={{ backgroundColor: "#e02067" }}
-            className="hidden md:block px-7 py-2 hover:opacity-90 active:scale-95 transition-all rounded-full text-white"
-          >
-            Get started
-          </button>
+  onClick={() => {
+    console.log("GET STARTED CLICKED");
+    setShowModal(true);
+  }}
+  className="px-7 py-2 rounded-full bg-[#e02067] text-white"
+>
+  Get starte
+</button>
+
 
           <Link
             href="/"
@@ -107,45 +110,29 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* ================= MODAL ================= */}
       {showModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setShowModal(false)}
-          />
+  <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+    <div
+      className="absolute inset-0 bg-black/50"
+      onClick={() => setShowModal(false)}
+    />
 
-          {/* Modal */}
-          <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl animate-in fade-in zoom-in-95">
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-slate-500 hover:text-slate-800"
-              aria-label="Close modal"
-            >
-              <XIcon size={20} />
-            </button>
+    <div className="relative bg-white rounded-2xl p-6 w-full max-w-md shadow-xl">
+      <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-4 right-4"
+      >
+        ✕
+      </button>
 
-            <h2 className="text-2xl font-semibold text-slate-900">
-              Get started with Dermify
-            </h2>
+      <h2 className="text-xl font-semibold">Get started with Dermify</h2>
+      <p className="mt-2 text-sm text-gray-600">
+        Launch a branded med spa app in minutes.
+      </p>
+    </div>
+  </div>
+)}
 
-            <p className="mt-2 text-sm text-slate-600">
-              Launch a branded client app for your med spa in minutes.
-            </p>
-
-            <div className="mt-6 space-y-3">
-              <button className="w-full rounded-xl bg-[#e02067] px-4 py-3 text-white font-medium hover:opacity-90 transition">
-                Book a demo
-              </button>
-
-              <button className="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 hover:bg-slate-50 transition">
-                Join waitlist
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }
