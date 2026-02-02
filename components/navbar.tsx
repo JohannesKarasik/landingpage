@@ -63,7 +63,8 @@ export default function Navbar() {
   }}
   className="px-7 py-2 rounded-full bg-[#e02067] text-white"
 >
-  Get starte
+GET STARTED TEST 999
+
 </button>
 
 
